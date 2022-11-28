@@ -1,0 +1,211 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-areas: "cabecera " "menu  " "cuerpo" "pie ";
+  grid-auto-rows: 1fr 1fr 10fr 1fr;
+  background-color: #F2E5E5;
+  height: 100vh;
+}
+@media (min-width: 540px) {
+  body {
+    grid-template-columns: repeat(5, 20%);
+    grid-template-areas: "cabecera cabecera cabecera cabecera cabecera " "menu cuerpo cuerpo cuerpo cuerpo " "pie pie pie pie pie ";
+    grid-auto-rows: 2fr 10fr 1fr;
+  }
+}
+body header {
+  grid-area: cabecera;
+  background-color: #CE7777;
+  display: grid;
+  grid-template-columns: auto;
+  justify-items: center;
+  align-items: center;
+}
+body header img.logo, body header img.perfil {
+  display: none;
+}
+body header h1 {
+  color: #2B3A55;
+  font: 2rem Arial;
+}
+@media (min-width: 540px) {
+  body header {
+    grid-template-columns: 1fr 3fr 1fr;
+  }
+  body header img.logo {
+    width: 50%;
+    height: auto;
+    display: block;
+  }
+  body header img.perfil {
+    width: 3em;
+    height: auto;
+    display: block;
+  }
+  body header h1 {
+    color: #2B3A55;
+    font: 4rem Arial;
+  }
+}
+body nav {
+  grid-area: menu;
+  background-color: #E8C4C4;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-content: start;
+  justify-items: center;
+  gap: 1em;
+  padding-top: 1em;
+}
+@media (min-width: 540px) {
+  body nav {
+    grid-template-columns: 1fr;
+  }
+}
+body nav button {
+  width: 80%;
+  height: 3em;
+  border-radius: 0.5em;
+  background-color: #2B3A55;
+  color: #CE7777;
+  font: 1rem Arial;
+}
+body main {
+  grid-area: cuerpo;
+  background-color: #F2E5E5;
+  display: grid;
+  grid-template-columns: auto;
+  gap: 1em;
+  padding: 1em;
+}
+@media (min-width: 540px) {
+  body main {
+    grid-template-columns: auto auto auto;
+  }
+}
+body main div.panel {
+  display: grid;
+  grid-template-columns: auto;
+  border: 2px solid #2B3A55;
+  box-shadow: 0.3em 0.5em 0.7em black;
+  gap: 1em;
+  align-content: start;
+}
+body main div.panel > div.titulo {
+  background-color: #CE7777;
+  color: #2B3A55;
+  font: 1.5em Arial;
+}
+body main div.panel > div.cuerpo {
+  background-color: #F2E5E5;
+  padding: 1em;
+  display: grid;
+  grid-template-columns: auto;
+  gap: 1em;
+}
+body main div.panel > div.cuerpo div.tarjeta {
+  border: 2px solid #2B3A55;
+  background-color: white;
+  border-radius: 0.3em;
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  grid-template-areas: "titulo   titulo   titulo   titulo cerrar" "etiqueta etiqueta etiqueta etiqueta etiqueta     " "cuerpo   cuerpo   cuerpo   cuerpo cuerpo";
+  justify-items: start;
+}
+body main div.panel > div.cuerpo div.tarjeta * {
+  padding: 0.5em;
+}
+body main div.panel > div.cuerpo div.tarjeta div.titulo {
+  grid-area: titulo;
+  font: 1.5em Arial;
+  color: #2B3A55;
+}
+body main div.panel > div.cuerpo div.tarjeta div.cerrar {
+  grid-area: cerrar;
+  justify-self: end;
+}
+body main div.panel > div.cuerpo div.tarjeta div.etiqueta {
+  grid-area: etiqueta;
+}
+body main div.panel > div.cuerpo div.tarjeta div.etiqueta div {
+  border-radius: 0.3em;
+  border: 1px solid #2B3A55;
+  display: inline-block;
+  padding: 0.2em;
+}
+body main div.panel > div.cuerpo div.tarjeta div.etiqueta div.facil {
+  background-color: rgb(168, 207, 168);
+}
+body main div.panel > div.cuerpo div.tarjeta div.etiqueta div.imposible {
+  background-color: rgb(192, 81, 81);
+}
+body main div.panel > div.cuerpo div.tarjeta div.cuerpo {
+  grid-area: cuerpo;
+}
+body main div.panel > div.cuerpo button {
+  justify-self: center;
+  width: 80%;
+  height: 3em;
+  border-radius: 0.5em;
+  background-color: #2B3A55;
+  color: #CE7777;
+  font: 1rem Arial;
+}
+body footer {
+  grid-area: pie;
+  background-color: #E8C4C4;
+}/*# sourceMappingURL=mi.css.map */
